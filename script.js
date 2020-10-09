@@ -44,6 +44,7 @@ function renderChart(data, labels, countryName) {
     // Clear the previous chart if it exists
     currentChart.destroy();
   }
+
   // Draw new chart
   currentChart = new Chart(ctx, {
     type: "line",
@@ -53,8 +54,8 @@ function renderChart(data, labels, countryName) {
         {
           label: "Population, " + countryName,
           data: data,
-          borderColor: "rgba(75, 192, 192, 1)",
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: " rgb(155, 51, 3)",
+          backgroundColor: " rgb(248, 121, 62)",
         },
       ],
     },

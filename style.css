@@ -6,7 +6,32 @@
 
 .content {
   text-align: center;
+  background-color: rgb(245, 237, 237);
+  color: #333;
+  height: 100vh;
 }
+
+.content a {
+  color: rgb(214, 22, 22);
+}
+
+.content a:hover {
+  color: rgb(197, 77, 21);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+input,
+button {
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+}
+
+button {
+  background-color: #ecd5d5;
+}
+
 .container {
   width: 75vw;
 }
