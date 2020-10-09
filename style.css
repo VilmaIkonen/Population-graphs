@@ -3,20 +3,25 @@
   padding: 0px;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #cdd4db;
+}
+header {
+  height: 100px;
+  width: 100%;
+}
 .content {
   text-align: center;
-  background-color: rgb(245, 237, 237);
-  color: #333;
+  color: #07576d;
   height: 100vh;
 }
 
 .content a {
-  color: rgb(214, 22, 22);
+  color: #046063;
 }
 
 .content a:hover {
-  color: rgb(197, 77, 21);
+  color: #08b0bb;
   text-decoration: none;
   font-weight: bold;
 }
@@ -29,7 +34,8 @@ button {
 }
 
 button {
-  background-color: #ecd5d5;
+  background-color: #014b60;
+  color: #f6f7f9;
 }
 
 .container {

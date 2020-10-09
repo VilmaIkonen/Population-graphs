@@ -4,41 +4,43 @@ var currentChart;
 document.getElementById("renderBtn").addEventListener("click", fetchData);
 
 async function fetchData() {
-  var countryCode = document.getElementById("country").value;
+  let countryCode = document.getElementById("country").value;
   const indicatorCode = "SP.POP.TOTL";
   const baseUrl = "https://api.worldbank.org/v2/country/";
   const url =
     baseUrl + countryCode + "/indicator/" + indicatorCode + "?format=json";
   console.log("Fetching data from URL: " + url);
 
-  var response = await fetch(url);
+  let response = await fetch(url);
 
   if (response.status == 200) {
-    var fetchedData = await response.json();
+    let fetchedData = await response.json();
     console.log(fetchedData);
 
-    var data = getValues(fetchedData);
-    var labels = getLabels(fetchedData);
-    var countryName = getCountryName(fetchedData);
+    let data = getValues(fetchedData);
+    let labels = getLabels(fetchedData);
+    let countryName = getCountryName(fetchedData);
     renderChart(data, labels, countryName);
   }
 }
+
 function getValues(data) {
-  var vals = data[1].sort((a, b) => a.date - b.date).map((item) => item.value);
+  let vals = data[1].sort((a, b) => a.date - b.date).map((item) => item.value);
   return vals;
 }
 
 function getLabels(data) {
-  var labels = data[1].sort((a, b) => a.date - b.date).map((item) => item.date);
+  let labels = data[1].sort((a, b) => a.date - b.date).map((item) => item.date);
   return labels;
 }
 
 function getCountryName(data) {
-  var countryName = data[1][0].country.value;
+  let countryName = data[1][0].country.value;
   return countryName;
 }
+
 function renderChart(data, labels, countryName) {
-  var ctx = document.getElementById("myChart").getContext("2d");
+  let ctx = document.getElementById("myChart").getContext("2d");
 
   if (currentChart) {
     // Clear the previous chart if it exists
@@ -47,19 +49,23 @@ function renderChart(data, labels, countryName) {
 
   // Draw new chart
   currentChart = new Chart(ctx, {
-    type: "line",
+    type: "bar",
     data: {
       labels: labels,
       datasets: [
         {
           label: "Population, " + countryName,
           data: data,
-          borderColor: " rgb(155, 51, 3)",
-          backgroundColor: " rgb(248, 121, 62)",
+          borderColor: " rgb(1, 75, 96)",
+          backgroundColor: " rgb(8, 176, 187, 0.8)",
+          color: "rgb(0,0,0)",
         },
       ],
     },
     options: {
+      animation: {
+        duration: 5000,
+      },
       scales: {
         yAxes: [
           {
